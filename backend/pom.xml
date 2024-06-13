@@ -17,8 +17,15 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
 		<!-- Spring Boot Starter Data JPA -->
 		<!-- Simplifies setting up a Spring application by automatically including all necessary libraries and configurations for JPA and Hibernate. -->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>

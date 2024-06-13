@@ -15,4 +15,6 @@ public class MarketMarvelsApplication {
 
 // http://localhost:8000/swagger-ui/index.html#/customer-controller/getAllUsers
 
-// API: http://localhost:8000/api/users
+// API to GET all users: http://localhost:8000/api/users
+
+// API to GET users by first name: http://localhost:8000/api/users/{firstName}

@@ -32,6 +32,11 @@ public class CustomerController {
     public List<Customer> getUsersByFirstName(@PathVariable String firstName) {
         return customerRepository.findByFirstName(firstName);
     } 
+
+    @GetMapping("id/{id}")
+    public List<Customer>getUsersByID(@PathVariable int id){
+        return customerRepository.findByid(id);
+    }
 }
 
 

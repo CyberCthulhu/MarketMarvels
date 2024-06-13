@@ -18,3 +18,5 @@ public class MarketMarvelsApplication {
 // API to GET all users: http://localhost:8000/api/users
 
 // API to GET users by first name: http://localhost:8000/api/users/{firstName}
+
+//API to get users by id: http://localhost:8000/api/users/id/{id}

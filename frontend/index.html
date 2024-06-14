@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="css/pico.min.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Services</title>
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
-    <!-- Your content goes here -->
+    <h1>Citi Services</h1>
+    <ul>
+        <li><a href="#" onclick="showDescription('service1')">Service 1</a></li>
+        <li><a href="#" onclick="showDescription('service2')">Service 2</a></li>
+        <li><a href="#" onclick="showDescription('service3')">Service 3</a></li>
+    </ul>
+
+    <div id="service1" class="description">
+        <h2>Service 1</h2>
+        <p>this is a description for service 1</p>
+    </div>
+    <div id="service2" class="description">
+        <h2>Service 2</h2>
+        <p>this is a description for service 2</p>
+    </div>
+    <div id="service3" class="description">
+        <h2>Service 3</h2>
+        <p>this is a description for service 3</p>
+    </div>
     
     <script src="script.js"></script>
 </body>

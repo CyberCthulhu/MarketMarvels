@@ -34,15 +34,28 @@ public class CustomerController {
         return customerRepository.findAll();
     }
 
+    @GetMapping("id/{id}")
+    public List<Customer>getUsersByID(@PathVariable int id){
+        return customerRepository.findByid(id);
+    }
+
     @GetMapping("/{firstName}")
     public List<Customer> getUsersByFirstName(@PathVariable String firstName) {
         return customerRepository.findByFirstName(firstName);
     } 
 
-    @GetMapping("id/{id}")
-    public List<Customer>getUsersByID(@PathVariable int id){
-        return customerRepository.findByid(id);
+    @GetMapping("/{email}")
+    public List<Customer> getUsersByEmail(@PathVariable String email) {
+        return customerRepository.findByEmail(email);
     }
+
+    @GetMapping("/{department}")
+    public List<Customer> getUsersByDepartment(@PathVariable String department) {
+        return customerRepository.findByDepartment(department);
+    }
+
+    
+
 }
 
 

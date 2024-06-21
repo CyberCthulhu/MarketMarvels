@@ -35,7 +35,7 @@ public class CustomerController {
     }
 
     @GetMapping("id/{id}")
-    public List<Customer>getUsersByID(@PathVariable int id){
+    public List<Customer>getUsersByID(@PathVariable Long id){
         return customerRepository.findByid(id);
     }
 
@@ -54,7 +54,7 @@ public class CustomerController {
         return customerRepository.findByDepartment(department);
     }
 
-    
+
 
 }
 

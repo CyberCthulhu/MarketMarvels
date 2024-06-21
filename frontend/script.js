@@ -9,12 +9,14 @@
 //         console.error('Error:', error);
 //     });
 
-function showDesription(serviceID){
-    // hide all descriptions
+function showDescription(serviceID) {
     var descriptions = document.getElementsByClassName('description');
-    for (var i=0; i<descriptions.length; i++){
-        descriptions[i].style.display = 'none';
+    for (var i = 0; i < descriptions.length; i++) {
+        descriptions[i].classList.remove('is-hidden');
     }
-    // show the selected description
-    document.getElementById(serviceID).style.display = 'block';
+    
+    var description = document.getElementById(serviceID);
+    description.classList.add('is-hidden@xs', 'is-visible@sm');
 }
+
+

@@ -16,12 +16,11 @@ public class DBInitializer {
         return args -> {
             // Create a list of sample customers
             var customers = List.of(
-                    new Customer("John", "Doe", "john.doe@example.com"),
-                    new Customer("Jane", "Smith", "jane.smith@example.com"),
-                    new Customer("Michael", "Johnson", "michael.johnson@example.com")
+                customerRepository.save(new Customer("GreenLeaf Landscaping", "Professional landscaping and garden maintenance services for residential and commercial properties, including lawn care, tree trimming, and flower bed design.", "Outdoor Services", "(217) 555-7890, info@greenleaflandscaping.com")),
+                customerRepository.save(new Customer("TechGuru IT Solutions", "Comprehensive IT support and consulting services, offering network setup, cybersecurity, and software development for businesses of all sizes.", "IT Support", "(512) 555-1234, support@techguru.com")),
+                customerRepository.save(new Customer("Pure Health Wellness Center", "Holistic health and wellness services, including chiropractic care, massage therapy, and nutritional counseling.", "Wellness", "(415) 555-6789, contact@purehealth.com")),
+                customerRepository.save(new Customer("Gourmet Bites Catering", "Full-service catering for events of all sizes, offering customized menus with gourmet cuisine for weddings, corporate events, and private parties.", "Event Services", "(305) 555-7891, catering@gourmetbites.com"))
             );
-            // Save all customers to the database
-            customerRepository.saveAll(customers);
         };
     }
 }

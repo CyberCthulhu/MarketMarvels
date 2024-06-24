@@ -6,11 +6,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
-    List<Customer> findByFirstName(String firstName);
+    List<Customer> findByName(String name);
 
     List<Customer>findByid(Long id);
 
-    List<Customer>findByEmail(String email);
+    List<Customer>findByContactInfo(String contactInfo);
 
     List<Customer>findByDepartment(String department);
 

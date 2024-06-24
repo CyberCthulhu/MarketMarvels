@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Service Details</title>
 </head>
 <body>
@@ -40,6 +41,30 @@
         const description = document.getElementById(serviceID);
         if (description) {
             description.style.display = 'block';
+        }
+        console.log(serviceID);
+        
+        if (serviceID == 'service1') {
+        fetch('http://localhost:8000/api/users/id/1')
+        .then(response => response.json())
+        .then(item => {
+            var itemData = item;
+            console.log(itemData);
+            // Continue with the rest of your code here
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+        
+
+        } else if (serviceID == 'service2') {
+            document.write("Personal Loans");
+        } else if (serviceID == 'service3') {
+            document.write("Online Banking");
+        } else if (serviceID == 'service4') {
+            document.write("Investment Advisory Services");
+        } else if (serviceID == 'service5') {
+            document.write("Mortgage Loans");
         }
     </script>
 </body>

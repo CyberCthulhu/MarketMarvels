@@ -21,6 +21,8 @@ public class DBInitializer {
                 customerRepository.save(new Customer("Pure Health Wellness Center", "Holistic health and wellness services, including chiropractic care, massage therapy, and nutritional counseling.", "Wellness", "(415) 555-6789, contact@purehealth.com")),
                 customerRepository.save(new Customer("Gourmet Bites Catering", "Full-service catering for events of all sizes, offering customized menus with gourmet cuisine for weddings, corporate events, and private parties.", "Event Services", "(305) 555-7891, catering@gourmetbites.com"))
             );
+
+            customerRepository.saveAll(customers);
         };
     }
 }

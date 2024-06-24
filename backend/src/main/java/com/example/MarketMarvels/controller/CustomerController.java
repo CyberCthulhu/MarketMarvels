@@ -40,13 +40,13 @@ public class CustomerController {
     }
 
     @GetMapping("/{firstName}")
-    public List<Customer> getUsersByFirstName(@PathVariable String firstName) {
-        return customerRepository.findByFirstName(firstName);
+    public List<Customer> getUsersByFirstName(@PathVariable String name) {
+        return customerRepository.findByName(name);
     } 
 
     @GetMapping("/{email}")
-    public List<Customer> getUsersByEmail(@PathVariable String email) {
-        return customerRepository.findByEmail(email);
+    public List<Customer> getUsersByEmail(@PathVariable String contactInfo) {
+        return customerRepository.findByContactInfo(contactInfo);
     }
 
     @GetMapping("/{department}")

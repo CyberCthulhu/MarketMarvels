@@ -1,13 +1,15 @@
-// fetch('http://localhost:8000/api/users')
-//     .then(response => response.json())
-//     .then(data => {
-//         data.forEach(user => {
-//             console.log(user);
-//         });
-//     })
-//     .catch(error => {
-//         console.error('Error:', error);
-//     });
+fetch('http://localhost:8000/api/users')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
+
+    var element = document.getElementById('');
+    console.log(element);
 
 function showDescription(serviceID) {
     var descriptions = document.getElementsByClassName('description');

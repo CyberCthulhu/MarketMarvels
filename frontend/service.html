@@ -8,14 +8,10 @@
 </head>
 <body>
     <div id="service1" class="description" style="display:none;">
-        <h2>Savings Accounts</h2>
-        <p>Our savings accounts offer a secure and convenient way to save money. With competitive interest rates and no monthly fees, you can watch your savings grow while having easy access to your funds when you need them.</p>
     </div>
 
     <div id="service2" class="description" style="display:none;">
-        <h2>Personal Loans</h2>
-        <p>Need extra cash for a major purchase or unexpected expenses? Our personal loans provide flexible borrowing options with competitive rates and terms. Whether you're looking to consolidate debt or fund a home improvement project, we're here to help.</p>
-    </div>
+   </div>
 
     <div id="service3" class="description" style="display:none;">
         <h2>Online Banking</h2>
@@ -49,8 +45,20 @@
         .then(response => response.json())
         .then(item => {
             var itemData = item;
+        
             console.log(itemData);
-            // Continue with the rest of your code here
+            itemData.forEach(itemData => {
+                var h2= document.createElement("h2");
+                h2.textContent = itemData.name;
+                description.appendChild(h2);
+            });
+
+           
+            itemData.forEach(itemData => {
+                var p = document.createElement("p");
+                p.textContent = itemData.description;
+                description.appendChild(p);
+            });
         })
         .catch(error => {
             console.error('Error:', error);
@@ -58,7 +66,29 @@
         
 
         } else if (serviceID == 'service2') {
-            document.write("Personal Loans");
+            fetch('http://localhost:8000/api/users/id/2')
+        .then(response => response.json())
+        .then(item => {
+            var itemData = item;
+        
+            console.log(itemData);
+            itemData.forEach(itemData => {
+                var h2= document.createElement("h2");
+                h2.textContent = itemData.name;
+                description.appendChild(h2);
+            });
+
+           
+            itemData.forEach(itemData => {
+                var p = document.createElement("p");
+                p.textContent = itemData.description;
+                description.appendChild(p);
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
         } else if (serviceID == 'service3') {
             document.write("Online Banking");
         } else if (serviceID == 'service4') {

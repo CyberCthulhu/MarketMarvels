@@ -6,7 +6,17 @@ fetch('http://localhost:8000/api/users')
     .catch(error => {
         console.error('Error:', error);
     });
-
+    var itemId = '123'; // Replace '123' with the desired item ID
+    fetch('http://localhost:8000/api/items/' + itemId)
+        .then(response => response.json())
+        .then(item => {
+            var itemData = item;
+            console.log(itemData);
+            // Continue with the rest of your code here
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 
     var element = document.getElementById('');
     console.log(element);

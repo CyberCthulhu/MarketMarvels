@@ -11,21 +11,15 @@
     </div>
 
     <div id="service2" class="description" style="display:none;">
-   </div>
+    </div>
 
     <div id="service3" class="description" style="display:none;">
-        <h2>Online Banking</h2>
-        <p>Manage your finances conveniently from anywhere with our online banking services. Access your accounts, transfer funds, pay bills, and more—all from the comfort of your home or on the go with our mobile banking app. Enjoy peace of mind with our advanced security features.</p>
     </div>
 
     <div id="service4" class="description" style="display:none;">
-        <h2>Investment Advisory Services</h2>
-        <p>Our investment advisory services provide personalized investment strategies tailored to your financial goals and risk tolerance. Our team of experienced advisors will help you navigate the complexities of the financial markets and build a diversified portfolio to maximize returns.</p>
     </div>
     
     <div id="service5" class="description" style="display:none;">
-        <h2>Mortgage Loans</h2>
-        <p>Whether you're buying your first home or refinancing an existing mortgage, our mortgage loans offer competitive rates and flexible terms. Our mortgage specialists will guide you through the entire process and help you find the right loan option for your needs.</p>
     </div>
 
     <script>
@@ -67,34 +61,99 @@
 
         } else if (serviceID == 'service2') {
             fetch('http://localhost:8000/api/users/id/2')
-        .then(response => response.json())
-        .then(item => {
-            var itemData = item;
+            .then(response => response.json())
+            .then(item => {
+                var itemData = item;
         
-            console.log(itemData);
-            itemData.forEach(itemData => {
-                var h2= document.createElement("h2");
-                h2.textContent = itemData.name;
-                description.appendChild(h2);
-            });
+                console.log(itemData);
+                itemData.forEach(itemData => {
+                    var h2= document.createElement("h2");
+                    h2.textContent = itemData.name;
+                    description.appendChild(h2);
+                });
 
            
-            itemData.forEach(itemData => {
-                var p = document.createElement("p");
-                p.textContent = itemData.description;
-                description.appendChild(p);
+                itemData.forEach(itemData => {
+                    var p = document.createElement("p");
+                    p.textContent = itemData.description;
+                    description.appendChild(p);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
             });
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
 
         } else if (serviceID == 'service3') {
-            document.write("Online Banking");
+            fetch('http://localhost:8000/api/users/id/3')
+            .then(response => response.json())
+            .then(item => {
+                var itemData = item;
+        
+                console.log(itemData);
+                itemData.forEach(itemData => {
+                    var h2= document.createElement("h2");
+                    h2.textContent = itemData.name;
+                    description.appendChild(h2);
+                });
+
+           
+                itemData.forEach(itemData => {
+                    var p = document.createElement("p");
+                    p.textContent = itemData.description;
+                    description.appendChild(p);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
         } else if (serviceID == 'service4') {
-            document.write("Investment Advisory Services");
+            fetch('http://localhost:8000/api/users/id/4')
+            .then(response => response.json())
+            .then(item => {
+                var itemData = item;
+        
+                console.log(itemData);
+                itemData.forEach(itemData => {
+                    var h2= document.createElement("h2");
+                    h2.textContent = itemData.name;
+                    description.appendChild(h2);
+                });
+
+           
+                itemData.forEach(itemData => {
+                    var p = document.createElement("p");
+                    p.textContent = itemData.description;
+                    description.appendChild(p);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
         } else if (serviceID == 'service5') {
-            document.write("Mortgage Loans");
+            fetch('http://localhost:8000/api/users/id/5')
+            .then(response => response.json())
+            .then(item => {
+                var itemData = item;
+        
+                console.log(itemData);
+                itemData.forEach(itemData => {
+                    var h2= document.createElement("h2");
+                    h2.textContent = itemData.name;
+                    description.appendChild(h2);
+                });
+
+           
+                itemData.forEach(itemData => {
+                    var p = document.createElement("p");
+                    p.textContent = itemData.description;
+                    description.appendChild(p);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
         }
     </script>
 </body>

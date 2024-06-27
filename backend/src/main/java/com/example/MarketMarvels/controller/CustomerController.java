@@ -39,20 +39,22 @@ public class CustomerController {
         return customerRepository.findByid(id);
     }
 
-    @GetMapping("/{firstName}")
-    public List<Customer> getUsersByFirstName(@PathVariable String name) {
-        return customerRepository.findByName(name);
-    } 
-
-    @GetMapping("/{email}")
-    public List<Customer> getUsersByEmail(@PathVariable String contactInfo) {
-        return customerRepository.findByContactInfo(contactInfo);
-    }
 
     @GetMapping("/{department}")
     public List<Customer> getUsersByDepartment(@PathVariable String department) {
         return customerRepository.findByDepartment(department);
     }
+
+    // @GetMapping("/{firstName}")
+    // public List<Customer> getUsersByFirstName(@PathVariable String name) {
+    //     return customerRepository.findByName(name);
+    // } 
+
+    // @GetMapping("/{email}")
+    // public List<Customer> getUsersByEmail(@PathVariable String contactInfo) {
+    //     return customerRepository.findByContactInfo(contactInfo);
+    // }
+
 
 
 

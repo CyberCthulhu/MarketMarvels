@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MarketMarvelsApplication",
+            "request": "launch",
+            "mainClass": "com.example.MarketMarvels.MarketMarvelsApplication",
+            "projectName": "MarketMarvels"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-MarketMarvelsApplication<demo>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

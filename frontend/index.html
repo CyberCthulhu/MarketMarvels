@@ -8,12 +8,31 @@
 </head>
 <body>
     <h1>Market Marvels Services</h1>
-    <ul>
-        <li><a href="service.html?serviceID=service1">Landscaping</a></li>
-        <li><a href="service.html?serviceID=service2">IT</a></li>
-        <li><a href="service.html?serviceID=service3">Wellness</a></li>
-        <li><a href="service.html?serviceID=service4">Catering</a></li>
-        <li><a href="service.html?serviceID=service5">Fitness</a></li>
-    </ul>
+    <ul></ul>
+
+    <script>
+        fetch('http://localhost:8000/api/users/')
+            .then(response => response.json())
+            .then(data => {
+                // Process the data here
+                console.log(data);
+                // Print out all the responses
+                data.forEach(response => {
+                    // Create a new list item for each response object
+                    const listItems = data.map(response => {
+                        return `<li><a href="service.html?serviceID=service${response.id}">${response.name}</a></li>`;
+                    });
+
+                    // Add the list items to the ul element
+                    const ul = document.querySelector('ul');
+                    ul.innerHTML = listItems.join('');
+                    
+                });
+            })
+            .catch(error => {
+                // Handle any errors here
+                console.error(error);
+            });
+    </script>
 </body>
 </html>

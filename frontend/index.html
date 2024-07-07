@@ -20,7 +20,7 @@
                 data.forEach(response => {
                     // Create a new list item for each response object
                     const listItems = data.map(response => {
-                        return `<li><a href="service.html?serviceID=service${response.id}">${response.name}</a></li>`;
+                        return `<li><a href="service.html?serviceID=${response.id}">${response.name}</a></li>`;
                     });
 
                     // Add the list items to the ul element

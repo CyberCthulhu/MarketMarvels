@@ -7,154 +7,41 @@
     <title>Service Details</title>
 </head>
 <body>
-    <div id="service1" class="description" style="display:none;">
-    </div>
-
-    <div id="service2" class="description" style="display:none;">
-    </div>
-
-    <div id="service3" class="description" style="display:none;">
-    </div>
-
-    <div id="service4" class="description" style="display:none;">
-    </div>
-    
-    <div id="service5" class="description" style="display:none;">
+    <div id="info">
     </div>
 
     <script>
         // Parse the URL parameter to get the serviceID
         const urlParams = new URLSearchParams(window.location.search);
         const serviceID = urlParams.get('serviceID');
-
-        // Show the description corresponding to the serviceID
-        const description = document.getElementById(serviceID);
-        if (description) {
-            description.style.display = 'block';
-        }
         console.log(serviceID);
         
-        if (serviceID == 'service1') {
-        fetch('http://localhost:8000/api/users/id/1')
+        
+        fetch('http://localhost:8000/api/users/id/'+serviceID)
         .then(response => response.json())
         .then(item => {
             var itemData = item;
-        
+            
+            
             console.log(itemData);
             itemData.forEach(itemData => {
                 var h2= document.createElement("h2");
                 h2.textContent = itemData.name;
-                description.appendChild(h2);
+                document.getElementById('info').appendChild(h2);
             });
 
            
             itemData.forEach(itemData => {
                 var p = document.createElement("p");
                 p.textContent = itemData.description;
-                description.appendChild(p);
+                document.getElementById('info').appendChild(p);
             });
         })
         .catch(error => {
             console.error('Error:', error);
         });
         
-
-        } else if (serviceID == 'service2') {
-            fetch('http://localhost:8000/api/users/id/2')
-            .then(response => response.json())
-            .then(item => {
-                var itemData = item;
-        
-                console.log(itemData);
-                itemData.forEach(itemData => {
-                    var h2= document.createElement("h2");
-                    h2.textContent = itemData.name;
-                    description.appendChild(h2);
-                });
-
-           
-                itemData.forEach(itemData => {
-                    var p = document.createElement("p");
-                    p.textContent = itemData.description;
-                    description.appendChild(p);
-                });
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-
-        } else if (serviceID == 'service3') {
-            fetch('http://localhost:8000/api/users/id/3')
-            .then(response => response.json())
-            .then(item => {
-                var itemData = item;
-        
-                console.log(itemData);
-                itemData.forEach(itemData => {
-                    var h2= document.createElement("h2");
-                    h2.textContent = itemData.name;
-                    description.appendChild(h2);
-                });
-
-           
-                itemData.forEach(itemData => {
-                    var p = document.createElement("p");
-                    p.textContent = itemData.description;
-                    description.appendChild(p);
-                });
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-
-        } else if (serviceID == 'service4') {
-            fetch('http://localhost:8000/api/users/id/4')
-            .then(response => response.json())
-            .then(item => {
-                var itemData = item;
-        
-                console.log(itemData);
-                itemData.forEach(itemData => {
-                    var h2= document.createElement("h2");
-                    h2.textContent = itemData.name;
-                    description.appendChild(h2);
-                });
-
-           
-                itemData.forEach(itemData => {
-                    var p = document.createElement("p");
-                    p.textContent = itemData.description;
-                    description.appendChild(p);
-                });
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-
-        } else if (serviceID == 'service5') {
-            fetch('http://localhost:8000/api/users/id/5')
-            .then(response => response.json())
-            .then(item => {
-                var itemData = item;
-        
-                console.log(itemData);
-                itemData.forEach(itemData => {
-                    var h2= document.createElement("h2");
-                    h2.textContent = itemData.name;
-                    description.appendChild(h2);
-                });
-
-           
-                itemData.forEach(itemData => {
-                    var p = document.createElement("p");
-                    p.textContent = itemData.description;
-                    description.appendChild(p);
-                });
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        }
+    
     </script>
 </body>
 </html>

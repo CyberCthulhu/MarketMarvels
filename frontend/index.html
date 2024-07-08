@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pico.min.css" type="text/css"/>
     
     <title>Services</title>
 </head>
-<body>
+<main class="container" id="main-container">
+    <article>
     <h1>Market Marvels Services</h1>
     <ul></ul>
+    </article>
 
     <script>
         fetch('http://localhost:8000/api/services/')
@@ -20,7 +23,7 @@
                 data.forEach(response => {
                     // Create a new list item for each response object
                     const listItems = data.map(response => {
-                        return `<li><a href="service.html?serviceID=${response.id}">${response.name}</a></li>`;
+                        return `<li style="list-style-type:none;"><a href="service.html?serviceID=${response.id}">${response.name}</a></li>`;
                     });
 
                     // Add the list items to the ul element
@@ -34,5 +37,6 @@
                 console.error(error);
             });
     </script>
-</body>
+
+</main>
 </html>

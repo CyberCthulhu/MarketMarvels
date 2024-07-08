@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="pico.min.css" type="text/css"/>
     <title>Service Details</title>
 </head>
-<body>
+<main class="container" id="main-container">
+    <article>
     <div id="info">
     </div>
-
+    </article>
     <script>
         // Parse the URL parameter to get the serviceID
         const urlParams = new URLSearchParams(window.location.search);
@@ -47,5 +48,5 @@
                 console.error('Error:', error);
             });
     </script>
-</body>
+</main>
 </html>

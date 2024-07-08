@@ -32,7 +32,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "*")// this allows javascript to fetch from the localhost
 @RestController // Marks this class as a Spring MVC controller where every method returns a domain object instead of a view
-@RequestMapping("/api/users") // Maps HTTP requests to /api/users to this controller
+@RequestMapping("/api") // Maps HTTP requests to /api/users to this controller
 public class CustomerController {
 
     @Autowired // Injects the CustomerRepository dependency
@@ -41,7 +41,7 @@ public class CustomerController {
         this.customerRepository = customerRepository;
     }
 
-    @GetMapping("/")
+    @GetMapping("/services")
     public List<Customer> getAllUsers() {
         
         List<Customer> customers = customerRepository.findAll();
@@ -49,7 +49,7 @@ public class CustomerController {
         return customers;
     }
 
-    @GetMapping("id/{id}")
+    @GetMapping("/{id}")
     public List<Customer>getUsersByID(@PathVariable Long id){
         return customerRepository.findByid(id);
     }
@@ -61,7 +61,7 @@ public class CustomerController {
     }
 
     // add a put method to add a new service
-    @PostMapping("/customer")
+    @PostMapping("/service")
     public ResponseEntity<Customer> addCustomer(@RequestBody Customer customer) {
         Customer newCustomer = customerRepository.save(customer);
         return ResponseEntity.ok(newCustomer);
@@ -71,7 +71,7 @@ public class CustomerController {
     public ResponseEntity<HashMap<String, String>> deleteUser(@PathVariable Long id) {
         customerRepository.deleteById(id);
         HashMap<String, String> response = new HashMap<>();
-        response.put("message", "User deleted successfully");
+        response.put("message", "Service deleted successfully");
         return ResponseEntity.ok(response);
     }
     

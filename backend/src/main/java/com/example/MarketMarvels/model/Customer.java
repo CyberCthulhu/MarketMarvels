@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 
 
 
@@ -14,9 +15,16 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    @NotBlank(message = "Name is mandatory")
     private String name;
+
+    @NotBlank(message = "Description is mandatory")
     private String description;
+
+    @NotBlank(message = "Department is mandatory")
     private String department;
+
+    @NotBlank(message = "Contact Info is mandatory")
     private String contactInfo;
 
     public Customer() {
@@ -71,13 +79,4 @@ public class Customer {
         this.contactInfo = contactInfo;
     }
 
-    // public Object getEmail() {
-    //     // TODO Auto-generated method stub
-    //     throw new UnsupportedOperationException("Unimplemented method 'getEmail'");
-    // }
-
-    // public void setEmail(Object email) {
-    //     // TODO Auto-generated method stub
-    //     throw new UnsupportedOperationException("Unimplemented method 'setEmail'");
-    // }
 }

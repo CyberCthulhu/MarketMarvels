@@ -6,7 +6,8 @@ package com.example.MarketMarvels.controller;
 import com.example.MarketMarvels.repository.CustomerRepository;
 
 import io.micrometer.core.ipc.http.HttpSender.Response;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 import com.example.MarketMarvels.model.Customer; // Import the Customer model
 
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,6 +37,9 @@ public class CustomerController {
 
     @Autowired // Injects the CustomerRepository dependency
     private CustomerRepository customerRepository;
+    public CustomerController(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
 
     @GetMapping("/")
     public List<Customer> getAllUsers() {
@@ -55,11 +60,12 @@ public class CustomerController {
         return customerRepository.findByDepartment(department);
     }
 
-    // add a put method to add a new user
-    @PostMapping("/add/user")
-    public Customer addUser(@RequestBody Customer customer) {
-        return customerRepository.save(customer);
-    }
+    // add a put method to add a new service
+    @PostMapping("/customer")
+    public ResponseEntity<Customer> addCustomer(@RequestBody Customer customer) {
+        Customer newCustomer = customerRepository.save(customer);
+        return ResponseEntity.ok(newCustomer);
+    } 
 
     @DeleteMapping("/{id}")
     public ResponseEntity<HashMap<String, String>> deleteUser(@PathVariable Long id) {

@@ -7,7 +7,7 @@ fetch('http://localhost:8000/api/users')
         console.error('Error:', error);
     });
     var itemId = '123'; // Replace '123' with the desired item ID
-    fetch('http://localhost:8000/api/items/' + itemId)
+    fetch('http://localhost:8000/api/services/' + itemId)
         .then(response => response.json())
         .then(item => {
             var itemData = item;
@@ -30,5 +30,4 @@ function showDescription(serviceID) {
     var description = document.getElementById(serviceID);
     description.classList.add('is-hidden@xs', 'is-visible@sm');
 }
-
 

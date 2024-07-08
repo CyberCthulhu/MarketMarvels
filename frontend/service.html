@@ -17,31 +17,35 @@
         console.log(serviceID);
         
         
-        fetch('http://localhost:8000/api/users/id/'+serviceID)
+        fetch('http://localhost:8000/api/services/id/'+serviceID)
         .then(response => response.json())
-        .then(item => {
-            var itemData = item;
-            
-            
-            console.log(itemData);
-            itemData.forEach(itemData => {
-                var h2= document.createElement("h2");
+            .then(item => {
+                var itemData = item;
+                
+                console.log(itemData);
+                
+                // Create and append the name element
+                var h2 = document.createElement("h2");
                 h2.textContent = itemData.name;
                 document.getElementById('info').appendChild(h2);
-            });
-
-           
-            itemData.forEach(itemData => {
+                
+       
                 var p = document.createElement("p");
                 p.textContent = itemData.description;
                 document.getElementById('info').appendChild(p);
+
+               
+               // var dept = document.createElement("p");
+                //dept.textContent = "Department: " + itemData.department;
+                //document.getElementById('info').appendChild(dept); 
+
+                var contact = document.createElement("p");
+                contact.textContent = "Contact Info: " + itemData.contactInfo;
+                document.getElementById('info').appendChild(contact);
+            })
+            .catch(error => {
+                console.error('Error:', error);
             });
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-        
-    
     </script>
 </body>
 </html>
